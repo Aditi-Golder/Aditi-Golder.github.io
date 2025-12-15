@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="CervixMed is a lightweight CNN and hybrid ML+DL pipeline that detects cervical cancer by combining image and tabular data, with a simple GUI for practical use.">
+  <meta name="keywords" content="CervixMed, cervical cancer, SIPaKMeD, hybrid architecture, CNN, SVM, Logistic Regression">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CervixMed: Detecting Cervical Cancer from Combinational Data using a Hybrid Architecture</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <!-- Keep the same CSS file names from the template -->
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <!-- Optional: small spacing tweaks to match the example look -->
+  <style>
+    .publication-title { margin-bottom: .5rem; }
+    .publication-authors { margin-bottom: .25rem; }
+    .publication-links .button { margin: .25rem; }
+  </style>
+
+  <!-- Keep the same JS file names from the template -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="#">
+        <span class="icon"><i class="fas fa-home"></i></span>
+      </a>
+
+      <!-- <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">Resources</a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="#results">Results</a>
+          <a class="navbar-item" href="#method">Method</a>
+          <a class="navbar-item" href="#hybrid">Hybrid Model</a>
+          <a class="navbar-item" href="#gui">GUI</a>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</nav> -->
+
+<!-- HERO / TITLE BLOCK -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+
+          <h1 class="title is-1 publication-title">
+            CervixMed: Detecting Cervical Cancer from Combinational Data using a Hybrid Architecture
+          </h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="mailto:guptd23@wfu.edu">Debashis Gupta</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="mailto:aditigolder2384@gmail.com">Aditi Golder</a><sup>1,2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="mailto:mahfuztajnim002@gmail.com">Md. Mahfuzul Haque</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="mailto:mmoni@csu.edu.au">Mohammad Ali Moni</a><sup>4</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Department of Computer Science, Wake Forest University, North Carolina, USA</span><br>
+            <span class="author-block">Institute of Information Technology, Jahangirnagar University, Dhaka, Bangladesh</span><br>
+            <span class="author-block">Department of Computer Science and Engineering, BAUST, Saidpur, Bangladesh</span><br>
+            <span class="author-block">AI and Cyber Futures Institute, Charles Sturt University, Bathurst, NSW, Australia</span>
+          </div>
+
+          <p class="is-italic has-text-grey is-size-5 mt-2">
+            Proceedings of the 2023 International Conference on Digital Image Computing: Techniques and Applications (DICTA 2023)
+          </p>
+          
+          
+
+          <div class="column has-text-centered">
+            <div class="publication-links mt-4">
+              <!-- Update the href targets when ready -->
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              <!-- </span>
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-powerpoint"></i></span>
+                  <span>Poster</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file"></i></span>
+                  <span>Slides</span>
+                </a>
+              </span> -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser" id="results">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- Use existing media element; caption updated -->
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4" type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        A lightweight CNN (CervixMed) + classical ML on tabular risk factors, fused in a simple hybrid pipeline.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Cervical cancer remains one of the most common cancers among women and benefits greatly from early screening. We propose three contributions: (1) a <b>Hybrid Architecture</b> that jointly considers patient <i>tabular</i> risk factors and <i>cell-image</i> analysis, (2) <b>CervixMed</b>, a lightweight CNN for five-way cervical cell classification, and (3) a simple <b>GUI</b> to streamline real-world use.
+          </p>
+          <p>
+            For tabular screening, classical ML models (KNN, SVM, LR, RF) are trained after PCA-driven preprocessing. <b>LR</b> and <b>SVM</b> each achieve <b>99% accuracy</b> and <b>100% sensitivity</b>. For images (SIPaKMeD), our <b>CervixMed</b> model surpasses strong transfer-learning baselines (DenseNet121/169/201, ResNet152v2, VGG19), reaching <b>94% accuracy</b> and <b>98% sensitivity</b> across five cell types.
+          </p>
+          <p>
+            The hybrid pipeline fuses the best tabular and image predictors at inference time. Combinations with LR or SVM plus CervixMed reach <b>96.5% overall accuracy</b>. We also provide a prototype GUI that handles cloud preprocessing, model inference, MongoDB-backed logging, and result review.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video (optional placeholder). -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Overview Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        <p class="is-size-7 mt-2">(Placeholder link; replace with your demo or talk.)</p>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+<section class="section" id="method">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+
+      <!-- Left column: Method summary -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Method Overview</h2>
+          <p>
+            <b>Dataset.</b> SIPaKMeD provides 4,048 isolated single-cell images from Pap smears across five classes: Dyskeratotic, Koilocytotic, Metaplastic, Parabasal, and Superficial‑Intermediate. Tabular clinical data comprises 858 records, 36 attributes, ages 13–84. Splits follow 70/15/15 for train/val/test.
+          </p>
+          <p>
+            <b>Preprocessing.</b> Images are resized to 64×64 with augmentations (rotation, flips, crops, Gaussian noise, contrast). Tabular features undergo imputation (primarily mean or logical fill for STD indicators) and dimensionality reduction via PCA.
+          </p>
+          <p>
+            <b>CervixMed (CNN).</b> A compact stack of Conv–ReLU–MaxPool blocks with Dropout for regularization. After flattening, dense layers (4608→128→64) feed a 5‑way softmax head for cell type classification.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right column: Architecture / training notes -->
+      <div class="column">
+        <h2 class="title is-3">Training & Baselines</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              <b>Classical ML (tabular).</b> Logistic Regression, SVM, kNN, and Random Forest; LR and SVM deliver the strongest results (99% accuracy, 100% sensitivity).
+            </p>
+            <p>
+              <b>Transfer Learning (images).</b> DenseNet121/169/201, ResNet152v2, and VGG19 serve as baselines. CervixMed attains 94% accuracy and 98% sensitivity, outperforming these models on average.
+            </p>
+            <p>
+              <b>Evaluation.</b> We report accuracy, sensitivity (recall), specificity, and AUC, observing minimal overfitting and strong generalization on test images.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Method. -->
+
+    <!-- Hybrid -->
+    <div class="columns is-centered" id="hybrid">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Hybrid Inference</h2>
+        <h3 class="title is-4">Fusing Tabular + Image Predictions</h3>
+        <div class="content has-text-justified">
+          <p>
+            We run the best tabular model (LR or SVM) and CervixMed in parallel and combine their outputs as the final decision. The top combinations—<b>LR+CervixMed</b> and <b>SVM+CervixMed</b>—achieve <b>96.5%</b> accuracy. Example cases show consistent agreement between tabular screening (positive/negative) and image classification (cell type), enabling a clear final verdict.
+          </p>
+          <ul>
+            <li>Tabular screening (e.g., risk factors) → Positive; Image class → Dyskeratotic ⇒ <b>Final: Positive</b>.</li>
+            <li>Tabular screening → Negative; Image class → Parabasal (normal) ⇒ <b>Final: Negative</b>.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--/ Hybrid. -->
+
+    <!-- GUI -->
+    <div class="columns is-centered" id="gui">
+      <div class="column is-full-width">
+        <h2 class="title is-3">GUI Workflow</h2>
+        <div class="content has-text-justified">
+          <p>
+            The GUI accepts both image and tabular inputs, performs cloud-based preprocessing, executes model inference (SVM/LR for tabular; CervixMed for images), and stores inputs and predictions in MongoDB for audit and continual improvement. Results are presented in a simple dashboard to support rapid screening.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ GUI. -->
+
+    <!-- Related Links. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Links</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            Prior work spans classical ML and modern DL for cervical cytology and colposcopy images, including CNNs with transfer learning and multi‑modal fusion. Our approach differs by <i>explicitly</i> combining strong tabular screening with a lightweight, task‑specific CNN for images, and exposing both via a practical GUI.
+          </p>
+          <ul>
+            <li>DL baselines: DenseNet, ResNet, VGG.</li>
+            <li>Colposcopy/cytology integration and multi‑modal screening.</li>
+            <li>SIPaKMeD single‑cell dataset (five classes).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--/ Related Links. -->
+
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{gupta2023cervixmed,
+  author    = {Debashis Gupta and Aditi Golder and Md. Mahfuzul Haque and Mohammad Ali Moni},
+  title     = {CervixMed: Detecting Cervical Cancer based on Combinational Data using a Hybrid Architecture},
+  booktitle = {International Conference on Digital Image Computing: Techniques and Applications (DICTA)},
+  year      = {2023}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <!-- <div class="content has-text-centered">
+      <a class="icon-link" href="#">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="#" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p class="is-size-7 mt-4">
+            This page was built using the 
+            <a href="https://github.com/nerfies/nerfies.github.io">Academic Project Page Template</a> 
+            which was adopted from the 
+            <a href="https://nerfies.github.io">Nerfies project page</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
