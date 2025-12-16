@@ -37,10 +37,34 @@ main {
     align-items: center;
     flex-wrap: wrap;
   }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .nav-icon {
+    font-size: 2rem;
+    color: #3c0d70;
+  }
+
+  .nav-text {
+    display: flex;
+    flex-direction: column;
+  }
   
   nav h1 {
     color: #3c0d70;
     margin: 0;
+    font-size: 1.5rem;
+  }
+
+  .nav-university {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #6b46a8;
+    font-weight: 500;
   }
   
   nav ul {
@@ -48,13 +72,20 @@ main {
     display: flex;
     padding: 0;
     margin: 0;
-    gap: 1rem;
+    gap: 1.5rem;
   }
   
   nav ul li a {
     text-decoration: none;
     color: #4a20a3;
     font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  nav ul li a i {
+    font-size: 1rem;
   }
 
  /* === Main Layout === */ 
@@ -103,6 +134,14 @@ main {
   .contacts li a {
     text-decoration: none;
     color: #000;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .contacts li a i {
+    font-size: 1.1rem;
+    line-height: 1;
   }
 
  /* === Section Content === */ 
@@ -582,6 +621,10 @@ body.dark {
 body.dark header { background-color: #2b2046; border-color: #6b5a95; }
 body.dark nav h1 { color: #d6c3ff; }
 body.dark nav ul li a { color: #d6c3ff; }
+
+/* Navigation logo (book icon + university) in dark mode */
+body.dark .nav-icon { color: #d4af37; }
+body.dark .nav-university { color: #d4af37; }
 
 /* Sidebar */
 body.dark aside { border-right-color: #444; }
