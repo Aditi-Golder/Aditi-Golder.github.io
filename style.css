@@ -60,6 +60,13 @@ main {
     font-size: 1.5rem;
   }
 
+  /* Make the nav title clickable but preserve styles */
+  .nav-home-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+  }
+
   .nav-university {
     margin: 0;
     font-size: 0.85rem;
@@ -155,6 +162,62 @@ main {
     margin-top: 0;
     color: #333;
   }
+
+/* Home page blocks */
+#home {
+  padding: 0 2rem;
+}
+
+#home .home-block {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+body.dark #home .home-block {
+  background: #2b2b3d;
+  box-shadow: none;
+  border: 1px solid #444;
+}
+
+#home h2 {
+  margin-top: 0;
+  color: #4a20a3;
+  border-bottom: 2px solid #ccc;
+}
+
+.prof-link {
+  color: #b0602b;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+body.dark .prof-link {
+  color: #d4af37;
+}
+
+.news-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.5rem 0 0;
+}
+
+.news-list li {
+  margin: 0.35rem 0;
+  line-height: 1.5;
+}
+
+.news-date {
+  font-weight: 600;
+  color: #7b6231;
+  margin-right: 0.4rem;
+}
+
+body.dark .news-date {
+  color: #d4af37;
+}
 
  /* === Education Section with Logos === */
 #education {
@@ -569,13 +632,30 @@ main {
   font-size: 0.95rem;
 }
 
- /* === Footer === */ 
-  footer {
-    margin-top: 2rem;
+ /* === Footer (light slide-up) === */ 
+  footer.fixed-footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: -60px; /* hidden by default */
+    background: #faf7ff; /* light, non-black */
+    border-top: 1px solid #e2d9f6;
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.06);
     text-align: center;
-    padding: 1rem;
+    padding: 0.75rem 1rem;
     font-size: 0.9rem;
-    color: #888;
+    color: #3c0d70;
+    transition: bottom 0.3s ease;
+    z-index: 10;
+  }
+
+  footer.fixed-footer.show {
+    bottom: 0;
+  }
+
+  /* Ensure content doesn't get covered when footer shows */
+  body.has-fixed-footer main {
+    padding-bottom: 80px;
   }
   
   /* === Dark mode === */
@@ -593,8 +673,11 @@ main {
     color: #d6c3ff;
   }
   
-  body.dark footer {
-    color: #aaaaaa;
+  body.dark footer.fixed-footer {
+    background: #2b2046;
+    border-top-color: #6b5a95;
+    color: #d6c3ff;
+    box-shadow: none;
   }
   
   /* === Theme Toggle button === */
@@ -635,6 +718,9 @@ body.dark footer { color: #aaaaaa; }
 
 /* Global section headings & dividers */
 body.dark section h2 { color: #d6c3ff; border-bottom-color: #555; }
+
+/* Home section headings in dark mode */
+body.dark #home h2 { color: #d6c3ff; border-bottom-color: #555; }
 
 /* Links */
 body.dark a { color: #a991ff; }
