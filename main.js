@@ -48,4 +48,30 @@ function loadContent(section) {
       icon.setAttribute("title", "Collapse");
     }
   }
+
+  // Reveal footer near bottom of page
+  (function setupFooterReveal(){
+    const footer = document.getElementById('site-footer');
+    if (!footer) return;
+    document.body.classList.add('has-fixed-footer');
+
+    function updateFooterVisibility(){
+      const scrollY = window.scrollY || document.documentElement.scrollTop;
+      const viewport = window.innerHeight;
+      const docHeight = Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight
+      );
+      const distanceToBottom = docHeight - (scrollY + viewport);
+      if (distanceToBottom < 200) {
+        footer.classList.add('show');
+      } else {
+        footer.classList.remove('show');
+      }
+    }
+
+    updateFooterVisibility();
+    window.addEventListener('scroll', updateFooterVisibility, { passive: true });
+    window.addEventListener('resize', updateFooterVisibility);
+  })();
   
