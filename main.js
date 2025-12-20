@@ -21,6 +21,10 @@ function loadContent(section) {
       .then(response => response.text())
       .then(html => {
         document.getElementById('main-content').innerHTML = html;
+        // Recalculate layout-dependent UI (e.g., footer visibility)
+        try {
+          window.dispatchEvent(new Event('resize'));
+        } catch (e) {}
       })
       .catch(error => {
         console.error('Error loading content:', error);
@@ -66,15 +70,15 @@ function loadContent(section) {
       const scrollable = docHeight - viewport;
 
       // Show only near the rear end: very close to bottom, after meaningful scroll, and only on tall pages
-      const nearEnd = distanceToBottom < 40;
-      const scrolled = scrollY > 240;
-      const pageTallEnough = scrollable > 400;
+        const nearEnd = distanceToBottom < 40;
+        const scrolled = scrollY > 240;
+        const pageTallEnough = scrollable > 400;
 
-      if (nearEnd && scrolled && pageTallEnough) {
-        footer.classList.add('show');
-      } else {
-        footer.classList.remove('show');
-      }
+        if (!pageTallEnough || (nearEnd && scrolled)) {
+          footer.classList.add('show');
+        } else {
+          footer.classList.remove('show');
+        }
     }
 
     updateFooterVisibility();
