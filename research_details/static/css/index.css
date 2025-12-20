@@ -159,3 +159,27 @@ body {
 
 
 
+/* === Overrides to align with reference page styling === */
+.publication-title {
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.link-block a {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  min-width: 130px;
+}
+
+.teaser .hero-body {
+  padding-bottom: 2rem;
+}
+
+.publication-header .hero-body {
+  padding-top: 2rem;
+  padding-bottom: 1.25rem;
+}
+
+
+
+
