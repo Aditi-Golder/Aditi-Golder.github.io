@@ -168,6 +168,43 @@ main {
   padding: 0 2rem;
 }
 
+/* Publications page spacing */
+#pubs {
+  padding: 0 2rem;
+}
+
+/* Academic Service page spacing */
+#service {
+  padding: 0 2rem;
+}
+
+.pub-section {
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 1rem 0.75rem;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.pub-section:first-of-type {
+  padding-top: 0.5rem;
+}
+
+.pub-section .pub-list {
+  margin-top: 0.25rem;
+}
+
+.pub-section h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+body.dark .pub-section {
+  background: #2b2b3d;
+  border: 1px solid #444;
+  box-shadow: none;
+}
+
 #home .home-block {
   margin-bottom: 1.5rem;
   padding: 1rem;
@@ -442,6 +479,11 @@ body.dark .news-date {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
+.advisor-card strong,
+.advisor-card a {
+  color: #b0602b;
+}
+
 .advisor-card img {
   width: 100px;
   height: 100px;
@@ -494,6 +536,7 @@ body.dark .news-date {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  color: #000;
 }
 
 .collab-card img {
@@ -502,6 +545,13 @@ body.dark .news-date {
   object-fit: cover;
   border-radius: 50%;
   margin-bottom: 1rem;
+}
+
+.collab-card strong,
+.collab-card a,
+.collab-card p,
+.collab-card br {
+  color: #b0602b;
 }
 
 /* Research Projects Section */
@@ -637,13 +687,13 @@ body.dark .news-date {
     position: fixed;
     left: 0;
     right: 0;
-    bottom: -60px; /* hidden by default */
-    background: #faf7ff; /* light, non-black */
+    bottom: -120px; /* hidden further by default */
+    background: linear-gradient(180deg, #f7f5ff 0%, #f1eefb 100%);
     border-top: 1px solid #e2d9f6;
-    box-shadow: 0 -4px 12px rgba(0,0,0,0.06);
+    box-shadow: 0 -6px 18px rgba(0,0,0,0.08);
     text-align: center;
-    padding: 0.75rem 1rem;
-    font-size: 0.9rem;
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
     color: #3c0d70;
     transition: bottom 0.3s ease;
     z-index: 10;
@@ -656,6 +706,26 @@ body.dark .news-date {
   /* Ensure content doesn't get covered when footer shows */
   body.has-fixed-footer main {
     padding-bottom: 80px;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .footer-links a {
+    color: #4a20a3;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .footer-links a:hover {
+    text-decoration: underline;
   }
   
   /* === Dark mode === */
@@ -678,6 +748,10 @@ body.dark .news-date {
     border-top-color: #6b5a95;
     color: #d6c3ff;
     box-shadow: none;
+  }
+
+  body.dark .footer-links a {
+    color: #d6c3ff;
   }
   
   /* === Theme Toggle button === */
@@ -776,6 +850,8 @@ body.dark #teaching h3 { color: #d6c3ff; }
 body.dark .advisor-card,
 body.dark .lab-info,
 body.dark .collab-card { background-color: #2b2b3d; color: #eeeeee; border-color: #444; }
+body.dark .advisor-card strong, body.dark .advisor-card a,
+body.dark .collab-card strong, body.dark .collab-card a { color: #d4af37; }
 body.dark .advisors h3,
 body.dark .research-heading,
 body.dark #service h2,

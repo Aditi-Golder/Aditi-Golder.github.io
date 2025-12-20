@@ -63,7 +63,14 @@ function loadContent(section) {
         document.documentElement.scrollHeight
       );
       const distanceToBottom = docHeight - (scrollY + viewport);
-      if (distanceToBottom < 200) {
+      const scrollable = docHeight - viewport;
+
+      // Show only near the rear end: very close to bottom, after meaningful scroll, and only on tall pages
+      const nearEnd = distanceToBottom < 40;
+      const scrolled = scrollY > 240;
+      const pageTallEnough = scrollable > 400;
+
+      if (nearEnd && scrolled && pageTallEnough) {
         footer.classList.add('show');
       } else {
         footer.classList.remove('show');
