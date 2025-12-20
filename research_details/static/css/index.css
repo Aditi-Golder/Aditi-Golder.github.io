@@ -163,6 +163,9 @@ body {
 .publication-title {
   font-weight: 800;
   letter-spacing: 0.2px;
+  font-size: clamp(2.6rem, 3vw + 1rem, 3.8rem);
+  line-height: 1.08;
+  margin-bottom: 1.1rem;
 }
 
 .link-block a {
@@ -178,6 +181,21 @@ body {
 .publication-header .hero-body {
   padding-top: 2rem;
   padding-bottom: 1.25rem;
+}
+
+.publication-hero .hero-body {
+  padding-top: 3.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.publication-authors {
+  margin-top: 0.35rem;
+  margin-bottom: 0.25rem;
+  line-height: 1.5;
+}
+
+.title-line2 {
+  font-weight: 800;
 }
 
 
