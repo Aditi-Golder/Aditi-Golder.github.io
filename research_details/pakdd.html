@@ -175,25 +175,31 @@
 <section class="section">
   <div class="container is-max-desktop">
 
-    <div class="columns is-centered">
-
-      <!-- Visual Effects. -->
-      <div class="column">
-        <div class="content">
+    <div class="content">
+      <h2 class="title is-3">Results</h2>
+        <div class="content has-text-centered">
           <h2 class="title is-3">Results</h2>
-            <p>Show key qualitative results here with captions.</p>
-            <img src="./static/images/result_placeholder.jpg" alt="Result sample" style="max-width:100%; height:auto;"/>
         </div>
-      </div>
-      <!--/ Visual Effects. -->
 
-      <!-- Matting. -->
-      <div class="column">
-        <h3 class="title is-4">More Examples</h3>
-        <p>Add more result images or figures as needed.</p>
-      </div>
+        <div class="columns is-centered">
+          <div class="column is-half has-text-centered">
+            <figure class="image">
+              <img src="./static/images/result_placeholder.jpg" alt="Without validation result"/>
+            </figure>
+            <p style="margin-top: 0.75rem; font-size: 1.1rem; line-height: 1.6;">
+              Without validation: noisy relations and incorrect edges persist.
+            </p>
+          </div>
+          <div class="column is-half has-text-centered">
+            <figure class="image">
+              <img src="./static/images/result_placeholder.jpg" alt="With validation result"/>
+            </figure>
+            <p style="margin-top: 0.75rem; font-size: 1.1rem; line-height: 1.6;">
+              With validation: cleaner graph with verified relationships.
+            </p>
+          </div>
+        </div>
     </div>
-    <!--/ Matting. -->
 
     <!-- Animation. -->
     <div class="columns is-centered">
