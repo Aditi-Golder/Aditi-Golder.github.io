@@ -335,6 +335,8 @@ main {
   font-size: 0.85rem;
   margin-right: 0.2rem;
   display: inline-block;
+  width: 16px;
+  height: 16px;
 }
 
 .badge-conference {
@@ -426,7 +428,12 @@ main {
   gap: 0.3rem;
 }
 
-.badge-stats-split a {
+.badge-stats-split .badge-label-box {
+  display: inline-flex;
+  align-items: center;
+}
+
+.badge-stats-split .badge-label-box a {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -444,10 +451,10 @@ main {
   background-color: #ffffff;
   color: #374151;
   padding: 0.3rem 0.5rem;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 0.8rem;
   font-weight: 600;
-  border: 1.5px solid #c4c4c8;
+  border: 1px solid #d5d5d8;
 }
 
 .badge-code {
