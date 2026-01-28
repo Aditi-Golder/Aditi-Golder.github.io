@@ -263,9 +263,11 @@ main {
 
 .featured-badges {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
+  flex-wrap: nowrap;
+  gap: 0.3rem;
   margin-bottom: 1rem;
+  overflow-x: auto;
+  align-items: center;
 }
 
 .featured-section {
@@ -319,14 +321,14 @@ main {
 .badge-label {
   font-weight: 400;
   opacity: 1;
-  padding: 0.4rem 0.8rem;
+  padding: 0.3rem 0.6rem;
   background-color: #545454;
   color: #ffffff;
 }
 
 .badge-value {
   font-weight: 700;
-  padding: 0.4rem 0.8rem;
+  padding: 0.3rem 0.6rem;
 }
 
 .badge-icon {
