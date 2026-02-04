@@ -171,90 +171,10 @@
     </div>
   </div>
   
-  
-<!-- Research Projects Heading -->
-   <h3 class="research-heading">Research Projects</h3>
+</section>
 
-<!-- === Project 1 === -->
-<div class="project-block">
-  <div class="project-header" onclick="toggleDetails(this)">
-    <div class="project-info">
-      <h4 class="project-title">
-        MoSAiC: Multi-Modal Multi-Label Supervision-Aware Contrastive Learning for Remote Sensing
-      </h4>
-    </div>
-    <div class="toggle-icon" title="Expand">▼</div>
-  </div>
-  <div class="project-details">
-    <div class="project-layout">
-      <img src="figures/workflow.JPG" alt="MoSAiC Architecture" class="project-arch">
-      <div class="project-meta-box">
-        <p class="project-meta">
-          <strong>Submitted to IJCAI-ECAI, 2026</strong> <br/>
-          <!-- Impact Factor: 3.880<br/> -->
-          <a href="https://arxiv.org/abs/2507.08683" target="_blank">[Preprint]</a>
-        </p>
-        <p>
-          Contrastive learning (CL) has emerged as a powerful paradigm for learning transferable representations without the reliance on large labeled datasets. Its ability to capture intrinsic similarities and differences among data samples has led to state-of-the-art results in computer vision tasks. These strengths make CL particularly well-suited for Earth System Observation (ESO), where diverse satellite modalities such as optical and SAR imagery offer naturally aligned views of the same geospatial regions. However, ESO presents unique challenges, including high inter-class similarity, scene clutter, and ambiguous boundaries, which complicate representation learning especially in low-label, multi-label settings. Existing CL frameworks often focus on intra-modality self-supervision or lack mechanisms for multi-label alignment and semantic precision across modalities. 
-          In this work, we introduce MoSAiC, a unified framework that jointly optimizes intra- and inter-modality contrastive learning with a multi-label supervised contrastive loss. Designed specifically for multi-modal satellite imagery, MoSAiC enables finer semantic disentanglement and more robust representation learning across spectrally similar and spatially complex classes. Experiments on two benchmark datasets, BigEarthNet V2.0 and Sent12MS, show that MoSAiC consistently outperforms both fully supervised and self-supervised baselines in terms of accuracy, cluster coherence, and generalization in low-label and high-class-overlap scenarios.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- === Project 2 === -->
-<div class="project-block">
-  <div class="project-header" onclick="toggleDetails(this)">
-    <div class="project-info">
-      <h4 class="project-title">
-        Scalable Knowledge Graph Construction from Unstructured Text: A Case Study on Artisanal and Small-Scale Gold Mining
-      </h4>
-    </div>
-    <div class="toggle-icon" title="Expand">▼</div>
-  </div>
-  <div class="project-details">
-    <div class="project-layout">
-      <img src="figures/kg.png" alt="Leukemia Project Architecture" class="project-arch">
-      <div class="project-meta-box">
-        <p class="project-meta">
-          <strong>Pacific-Asia Conference on Knowledge Discovery and Data Mining (PAKDD)</strong><br/>
-          <a href="https://doi.org/10.1007/978-981-96-8173-0_37" target="_blank">[DOI: https://doi.org/10.1007/978-981-96-8173-0_37]</a>
-        </p>
-        <p>
-          Constructing knowledge graphs (KGs) from unstructured text is an important yet challenging task, often requiring a great deal of manual effort and domain-specific adjustments. We propose an unsupervised, scalable method that automates both triplet extraction (subject, predicate, object) and validation using large language models (LLMs). Our framework leverages PageRank to rank external knowledge sources from the web, which are provided as contextual input to multiple LLM queries. Majority voting is then performed in the output space of these queries to ensure relationship validation. This approach offers a generalizable, domain-agnostic solution for KG construction across diverse fields. As a case study, we applied the method to Artisanal and Small-Scale Gold Mining (ASGM), constructing a knowledge graph from 1,899 triplets extracted from 9 domain-specific documents, cumulatively amounting to approximately 930 pages of unstructured text. Our framework achieves comparable performance with five baselines on a publicly available KG benchmark, and achieves over 
-          accuracy on ASGM-KG, as validated by domain experts. Additionally, our framework was able to identify factual inaccuracies in popular benchmarks like Codex, highlighting the need for more reliable validation methods.
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- === Project 3 === -->
-<div class="project-block">
-    <div class="project-header" onclick="toggleDetails(this)">
-      <div class="project-info">
-        <h4 class="project-title">
-          CervixMed: Detecting Cervical Cancer based on combinational data using Hybrid architecture
-        </h4>
-      </div>
-      <div class="toggle-icon" title="Expand">▼</div>
-    </div>
-    <div class="project-details">
-      <div class="project-layout">
-        <img src="figures/gui_cervix.png" alt="MoSAiC Architecture" class="project-arch">
-        <div class="project-meta-box">
-          <p class="project-meta">
-            <strong>2023 International Conference on Digital Image Computing: Techniques and Applications (DICTA)</strong> <br/>
-            <!-- Impact Factor: 3.880<br/> -->
-            <a href="https://doi.org/10.1109/DICTA60407.2023.00085" target="_blank">[DOI: 10.1109/DICTA60407.2023.00085]</a>
-          </p>
-          <p>
-            Cervical cancer is women’s second most frequent malignancy globally, with a 60% mortality rate. Early identification through routine checkups is crucial because cervical cancer has a long latent period and begins with no overt signs. One of the most evident barriers to not having an early detection is the time required for the diagnostic process, which also accounts for indifference regarding its automation. These uncertainties occur for several reasons, while one of the most prominent causes is providing the report by the computer-aided diagnostic process only based on the patient’s information in tabular form or only predicting the patient’s cervix image. In this study, we proposed three concepts 1. Hybrid Architecture, 2. CervixMed, a novel CNN-based architecture, and 3. GUI (Graphical User Interface). In Hybrid Architecture, we propose a methodology that takes both types of data, i.e., tabular and image, and then merges the prediction provided by the models and shows the final output. For tabular data classification, we use traditional-machine learning models like KNN, SVM, LR, and RF, where LR and SVM provided the best accuracy of 99%. On the other hand, the image data is classified into one of the five categories using our novel lightweight CNN-based architecture, CervixMed, that outperforms other pre-trained models like DenseNet121, DenseNet169, DenseNet201, ResNetl52v2, and VGG19 by 94% in accuracy and 98% in sensitivity. The hybrid architecture combines the abovementioned models and chooses the best pair regarding accuracy.
-            In this study, we demonstrated that combining LR and SVM with CervixMed outperforms the other combinations by 96.5% accuracy. Lastly, we demonstrated the methodology of the proposed GUI for interacting with the end-users with this hybrid model.
-        </div>
-      </div>
-    </div>
-  </div>
+     
 
 <!-- === Project 4 === -->
   <!-- <div class="project-block">
