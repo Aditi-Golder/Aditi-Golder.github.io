@@ -264,7 +264,7 @@ main {
 .featured-badges {
   display: flex;
   flex-wrap: nowrap;
-  gap: 0.3rem;
+  gap: 0.5rem;
   margin-bottom: 1rem;
   overflow-x: auto;
   align-items: center;
@@ -300,9 +300,11 @@ main {
 
 .featured-badges {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
   margin-bottom: 1rem;
+  overflow-x: auto;
+  align-items: center;
 }
 
 .badge {
@@ -310,12 +312,13 @@ main {
   align-items: center;
   gap: 0;
   padding: 0;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   border-radius: 4px;
   font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .badge-label {
@@ -335,8 +338,8 @@ main {
   font-size: 0.85rem;
   margin-right: 0.2rem;
   display: inline-block;
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
 }
 
 .badge-conference {
@@ -364,6 +367,20 @@ main {
 
 .badge-preprint .badge-value {
   background-color: #7c2d2d;
+  color: #ffffff;
+}
+
+.badge-dicta {
+  gap: 0;
+}
+
+.badge-dicta .badge-label {
+  background-color: #545454;
+  color: #ffffff;
+}
+
+.badge-dicta .badge-value {
+  background-color: #4a90e2;
   color: #ffffff;
 }
 
@@ -422,39 +439,55 @@ main {
   color: #374151;
 }
 
-.badge-stats-split {
+.gh-stats {
   display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
+  gap: 1rem;
 }
 
-.badge-stats-split .badge-label-box {
+.gh-group {
   display: inline-flex;
   align-items: center;
 }
 
-.badge-stats-split .badge-label-box a {
+.gh-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.3rem 0.6rem;
-  background-color: #f3f4f6;
-  color: #374151;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  font-weight: 600;
+  gap: 6px;
+  padding: 5px 12px;
+  border: 1px solid #d0d7de;
+  border-radius: 6px 0 0 6px;
+  background: #f6f8fa;
+  color: #24292f;
+  font-size: 14px;
   text-decoration: none;
-  white-space: nowrap;
+  font-weight: 500;
 }
 
-.badge-stats-split .count-box {
-  background-color: #ffffff;
-  color: #374151;
-  padding: 0.3rem 0.5rem;
-  border-radius: 6px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  border: 1px solid #d5d5d8;
+.gh-btn:hover {
+  background: #f3f4f6;
+  border-color: #b1bac4;
+}
+
+.gh-btn .icon {
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  fill: currentColor;
+}
+
+.gh-count {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border: 1px solid #d0d7de;
+  border-left: none;
+  border-radius: 0 6px 6px 0;
+  background: #ffffff;
+  color: #24292f;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
 }
 
 .badge-code {

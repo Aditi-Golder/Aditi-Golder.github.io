@@ -1,5 +1,16 @@
 // main.js
 
+// News carousel scroll function
+function scrollNews(direction) {
+  const container = document.querySelector('.news-cards-container');
+  if (container) {
+    container.scrollBy({
+      left: direction * 340,
+      behavior: 'smooth'
+    });
+  }
+}
+
 // Add dark/light theme toggle
 document.addEventListener("DOMContentLoaded", function () {
     const toggle = document.createElement("button");
@@ -15,12 +26,43 @@ document.addEventListener("DOMContentLoaded", function () {
 // main.js
 
 
+// Store the original home content on page load
+let homeContent = null;
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Save the original home content
+  homeContent = document.getElementById('main-content').innerHTML;
+});
+
 function loadContent(section) {
+    // Home is static in index.html, restore the original home content
+    if (section === 'home') {
+      if (homeContent) {
+        document.getElementById('main-content').innerHTML = homeContent;
+      }
+      return;
+    }
+    
     const file = section + '-content.html';
     fetch(file)
       .then(response => response.text())
       .then(html => {
         document.getElementById('main-content').innerHTML = html;
+        
+        // Reload scripts after a small delay to ensure DOM is ready
+        setTimeout(() => {
+          const scripts = document.getElementById('main-content').querySelectorAll('script[src]');
+          scripts.forEach(oldScript => {
+            const newScript = document.createElement('script');
+            newScript.type = 'text/javascript';
+            if (oldScript.id) newScript.id = oldScript.id;
+            newScript.src = oldScript.src;
+            newScript.async = true;
+            newScript.defer = false;
+            oldScript.parentNode.replaceChild(newScript, oldScript);
+          });
+        }, 50);
+        
         // Recalculate layout-dependent UI (e.g., footer visibility)
         try {
           window.dispatchEvent(new Event('resize'));
@@ -32,9 +74,20 @@ function loadContent(section) {
       });
   }
   
-  // Load home content by default on page load
+  // Load home content by default on page load (home is now static)
   window.onload = function () {
-    loadContent('home');
+    // Reload globe widget script to ensure it initializes
+    setTimeout(() => {
+      const globeScript = document.getElementById('mmvst_globe');
+      if (globeScript) {
+        const newScript = document.createElement('script');
+        newScript.type = 'text/javascript';
+        newScript.id = 'mmvst_globe';
+        newScript.src = '//mapmyvisitors.com/globe.js?d=6fxZpZfaQw2WV5XFhecj1Kz7WLHXrDdV_5Q0OQoto7E';
+        newScript.async = true;
+        globeScript.parentNode.replaceChild(newScript, globeScript);
+      }
+    }, 500);
   };
 
 

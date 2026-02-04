@@ -37,7 +37,7 @@
       <p>Graduate Student of Computer Science @WFU</p>
       <ul class="contacts">
         <li><a href="mailto:aditigolder2384@gmail.com" target="_blank"><i class="fas fa-envelope"></i> Email</a></li>
-        <li><a href="https://share.google/h0Zy82tcBnqXAUw6O" target="_blank"><i class="ai ai-google-scholar"></i> Google Scholar</a></li>
+        <li><a href="https://scholar.google.com/citations?hl=en&user=_ksO_SgAAAAJ" target="_blank"><i class="ai ai-google-scholar"></i> Google Scholar</a></li>
         <!-- <li><a href="https://www.semanticscholar.org/author/YOUR_SEMANTIC_ID" target="_blank"><i class="fas fa-book"></i> Semantic Scholar</a></li> -->
         <li><a href="https://www.researchgate.net/profile/Aditi-Golder?ev=hdr_xprf" target="_blank"><i class="ai ai-researchgate"></i> ResearchGate</a></li>
         <li><a href="https://github.com/Aditi-Golder" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
@@ -48,7 +48,65 @@
     </aside>
 
     <section id="main-content">
-      <!-- Content dynamically loaded here -->
+      <!-- Home Section - Static Content for Globe Widget Compatibility -->
+      <section id="home">
+        <!-- About Me -->
+        <div class="home-block" id="bio">
+          <h2>Biography</h2>
+          <p>I was born in Gopalganj, Dhaka, Bangladesh. I am currently a graduate student in the Department of Computer Science at Wake Forest University, Winston-Salem, NC, where I was awarded a full-ride scholarship through a Graduate Teaching Assistantship. In addition, I work as a Graduate Research Assistant in the Intelligent Remote Sensing in Conservation & Discovery Group (IRSC Lab) at Wake Forest University under the supervision of <a href="https://paucavp.sites.wfu.edu/" target="_blank" class="prof-link">Dr. Paul Pauca</a>.</p>
+          <p>Prior to joining Wake Forest University, I earned my Master's degree in Information Technology from Jahangirnagar University, Savar, Bangladesh, under the supervision of Professor <a href="https://juniv.edu/teachers/akkas" target="_blank" class="prof-link">K M Akkas Ali</a>. During this period, I collaborated remotely with <a href="https://www.ku.ac.ae/college-people/zeyar-aung" target="_blank" class="prof-link">Dr. U Zeyar Aung</a> from Khalifa University, UAE, and <a href="https://about.uq.edu.au/experts/32270" target="_blank" class="prof-link">Dr. Mohammad Ali Moni</a> from The University of Queensland, Australia. I completed my Bachelor's degree in Software Engineering at Daffodil International University, Dhaka, Bangladesh, under the supervision of <a href="https://faculty.daffodilvarsity.edu.bd/profile/itm/nusrat-jahan.html" target="_blank" class="prof-link">Dr. Nusrat Jahan</a>.</p>
+          <p>Beyond academics, I believe nature has a powerful healing influence. I enjoy traveling and spending my free time in natural settings. I also like reading books, listening to music, and experimenting with new cuisines.</p>
+        </div>
+
+        <!-- Research Overview -->
+        <div class="home-block" id="research-overview">
+          <h2>Research Interests</h2>
+          <p>My research interests lie at the intersection of computer vision, machine learning, and remote sensing. I focus on developing automated, efficient, and interpretable machine learning systems, with particular emphasis on:</p>
+          <ul>
+            <li>Graph theory and representation learning</li>
+            <li>Generative AI for data-efficient training</li>
+            <li>Model robustness, transparency, and trustworthy ML</li>
+            <li>Applications in remote sensing and visual understanding</li>
+          </ul>
+          <p>Ultimately, I strive to make machine learning models more resource-efficient, transparent, and trustworthy, while solving real-world problems responsibly.</p>
+        </div>
+
+        <!-- News -->
+        <div class="home-block" id="news">
+          <h2>Recent News</h2>
+          <div class="news-cards-container">
+            <div class="news-card">
+              <span class="news-date">[08/2025]</span>
+              <p>Our work on <strong><em>"EmoBang: Detecting Emotion From Bengali Texts"</em></strong> has been accepted to the International Conference on Natural Language Processing and Information Retrieval (<em>NLPIR</em>)!</p>
+            </div>
+            <div class="news-card">
+              <span class="news-date">[02/2025]</span>
+              <p>Our work on <strong><em>"Scalable Knowledge Graph Construction from Unstructured Text: A Case Study on Artisanal and Small-Scale Gold Mining"</em></strong> has been accepted to <em>PAKDD</em>!</p>
+            </div>
+            <div class="news-card">
+              <span class="news-date">[07/2024]</span>
+              <p>Our work on <strong><em>"Hate speech detection in the Bengali language: a comprehensive survey"</em></strong> has been published in <em>Journal of Big Data</em>!</p>
+            </div>
+          </div>
+          <div class="news-nav-buttons">
+            <button class="news-nav-btn" onclick="scrollNews(-1)">←</button>
+            <button class="news-nav-btn" onclick="scrollNews(1)">→</button>
+          </div>
+        </div>
+
+        <!-- Site Visitors -->
+        <div class="home-block" id="site-visitors">
+          <h2>Site Visitors</h2>
+          <div class="visitor-container">
+            <div class="visitor-map-widget">
+              <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=EqWUyraw9KtYS25RsK21Pwl-Vgf7ID_XbRrHgTfXVwo&cl=ffffff&w=a"></script>
+            </div>
+            <div class="visitor-globe-widget">
+              <script type="text/javascript" id="mmvst_globe" src="//mapmyvisitors.com/globe.js?d=6fxZpZfaQw2WV5XFhecj1Kz7WLHXrDdV_5Q0OQoto7E"></script>
+            </div>
+          </div>
+        </div>
+      </section>
     </section>
   </main>
 
