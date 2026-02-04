@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Publications</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="main-content">
+        <!-- Content will be loaded here -->
+    </div>
+    
+    <script>
+        fetch('test-minimal-pubs.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('main-content').innerHTML = html;
+                console.log('Publications loaded successfully');
+            })
+            .catch(error => {
+                console.error('Error loading publications:', error);
+                document.getElementById('main-content').innerHTML = '<p>Error: ' + error + '</p>';
+            });
+    </script>
+</body>
+</html>
