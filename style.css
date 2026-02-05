@@ -100,6 +100,7 @@ main {
     display: flex;
     margin: 2rem;
     gap: 2rem;
+    height: calc(100vh - 180px); /* Adjust based on header/footer height */
   }
 
 /* === Sidebar === */
@@ -107,6 +108,7 @@ main {
     flex: 0 0 250px;
     border-right: 1px solid #ddd;
     padding-right: 2rem;
+    overflow-y: hidden; /* Sidebar doesn't scroll */
   }
   
   aside img.profile-pic {
@@ -154,6 +156,8 @@ main {
  /* === Section Content === */ 
   section {
     flex: 1;
+    overflow-y: auto; /* Make content area scrollable */
+    padding-right: 1rem; /* Add some padding for scrollbar */
   }
   
   section h2 {
@@ -1349,12 +1353,8 @@ body.dark .edu-university {
   font-size: 0.95rem;
 }
 
- /* === Footer (light slide-up) === */ 
-  footer.fixed-footer {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: -120px; /* hidden further by default */
+ /* === Footer === */ 
+  footer {
     background: linear-gradient(180deg, #f7f5ff 0%, #f1eefb 100%);
     border-top: 1px solid #e2d9f6;
     box-shadow: 0 -6px 18px rgba(0,0,0,0.08);
@@ -1362,17 +1362,7 @@ body.dark .edu-university {
     padding: 1rem 1.5rem;
     font-size: 0.95rem;
     color: #3c0d70;
-    transition: bottom 0.3s ease;
-    z-index: 10;
-  }
-
-  footer.fixed-footer.show {
-    bottom: 0;
-  }
-
-  /* Ensure content doesn't get covered when footer shows */
-  body.has-fixed-footer main {
-    padding-bottom: 80px;
+    margin-top: 2rem; /* Add some space above footer */
   }
 
   .footer-links {
@@ -1410,7 +1400,7 @@ body.dark .edu-university {
     color: #d6c3ff;
   }
   
-  body.dark footer.fixed-footer {
+  body.dark footer {
     background: #2b2046;
     border-top-color: #6b5a95;
     color: #d6c3ff;
