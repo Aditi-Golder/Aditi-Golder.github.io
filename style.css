@@ -822,11 +822,96 @@ body.dark .news-nav-btn:hover {
   position: relative;
 }
 
-.visitor-globe-widget img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+.css-globe {
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+
+.globe-sphere {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4a90e2 0%, #357abd 50%, #1e5f94 100%);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    inset -20px -20px 30px rgba(0,0,0,0.3),
+    0 4px 20px rgba(0,0,0,0.2);
+  animation: globe-rotate 20s linear infinite;
+}
+
+.continents {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.continent {
+  position: absolute;
+  background: #2d5a2d;
+  border-radius: 3px;
+}
+
+.north-america {
+  width: 25px;
+  height: 35px;
+  top: 40px;
+  left: 30px;
+  border-radius: 8px 8px 4px 12px;
+}
+
+.south-america {
+  width: 15px;
+  height: 45px;
+  top: 80px;
+  left: 50px;
+  border-radius: 8px 4px 4px 8px;
+}
+
+.europe {
+  width: 20px;
+  height: 15px;
+  top: 45px;
+  left: 90px;
+  border-radius: 4px;
+}
+
+.africa {
+  width: 18px;
+  height: 40px;
+  top: 60px;
+  left: 95px;
+  border-radius: 8px 8px 4px 4px;
+}
+
+.asia {
+  width: 40px;
+  height: 25px;
+  top: 35px;
+  left: 115px;
+  border-radius: 8px 12px 8px 4px;
+}
+
+.australia {
+  width: 12px;
+  height: 8px;
+  top: 120px;
+  left: 135px;
+  border-radius: 4px;
+}
+
+@keyframes globe-rotate {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+.globe-label {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 10px;
+  font-weight: 500;
 }
 }
 
