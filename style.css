@@ -817,6 +817,8 @@ body.dark .news-nav-btn:hover {
   border: none;
   padding: 0;
   margin: 0;
+  position: relative;
+  min-height: 240px;
 }
 }
 
