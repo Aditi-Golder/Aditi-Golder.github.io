@@ -37,27 +37,8 @@
 			<div class="visitor-map-widget">
 				<script type="text/javascript" id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?d=EqWUyraw9KtYS25RsK21Pwl-Vgf7ID_XbRrHgTfXVwo&cl=ffffff&w=a"></script>
 			</div>
-			<div class="visitor-globe-widget" id="globe-container">
-				<div id="globe-placeholder" style="text-align: center; color: #666; font-size: 0.9rem; padding: 20px;">
-					🌍<br>Loading globe...
-				</div>
-				<script type="text/javascript">
-					// Load globe with delay to ensure proper loading
-					setTimeout(function() {
-						var script = document.createElement('script');
-						script.type = 'text/javascript';
-						script.src = 'https://mapmyvisitors.com/globe.js?d=6fxZpZfaQw2WV5XFhecj1Kz7WLHXrDdV_5Q0OQoto7E';
-						script.onload = function() {
-							document.getElementById('globe-placeholder').style.display = 'none';
-						};
-						document.getElementById('globe-container').appendChild(script);
-					}, 1500);
-				</script>
-				<noscript>
-					<div style="text-align: center; color: #666; font-size: 0.9rem;">
-						🌍<br>Globe widget<br>requires JavaScript
-					</div>
-				</noscript>
+			<div class="visitor-globe-widget">
+				<script type="text/javascript" src="https://mapmyvisitors.com/globe.js?d=6fxZpZfaQw2WV5XFhecj1Kz7WLHXrDdV_5Q0OQoto7E"></script>
 			</div>
 		</div>
 	</div>
