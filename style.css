@@ -819,10 +819,8 @@ body.dark .news-nav-btn:hover {
   align-items: center;
   overflow: visible;
   background: transparent;
+  border: none;
 }
-  background: #f5f5f5;
-  border: 1px solid #ddd;
-  border-radius: 8px;
 }
 
 @media (max-width: 1024px) {
