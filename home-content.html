@@ -39,6 +39,34 @@
 			</div>
 			<div class="visitor-globe-widget">
 				<script type="text/javascript" id="mmvst_globe" src="https://mapmyvisitors.com/globe.js?d=6fxZpZfaQw2WV5XFhecj1Kz7WLHXrDdV_5Q0OQoto7E"></script>
+				<script>
+					// Ensure globe widget loads properly
+					(function() {
+						var retryCount = 0;
+						var maxRetries = 3;
+						
+						function checkGlobe() {
+							var globeContainer = document.querySelector('.visitor-globe-widget');
+							var hasGlobeContent = globeContainer && globeContainer.children.length > 2; // script + noscript + actual content
+							
+							if (!hasGlobeContent && retryCount < maxRetries) {
+								retryCount++;
+								setTimeout(function() {
+									// Reload the globe script
+									var newScript = document.createElement('script');
+									newScript.type = 'text/javascript';
+									newScript.src = 'https://mapmyvisitors.com/globe.js?d=6fxZpZfaQw2WV5XFhecj1Kz7WLHXrDdV_5Q0OQoto7E&retry=' + retryCount;
+									globeContainer.appendChild(newScript);
+									
+									setTimeout(checkGlobe, 2000);
+								}, 1000);
+							}
+						}
+						
+						// Check after initial load
+						setTimeout(checkGlobe, 3000);
+					})();
+				</script>
 				<noscript>
 					<div style="text-align: center; color: #666; font-size: 0.9rem;">
 						🌍<br>Globe widget<br>requires JavaScript

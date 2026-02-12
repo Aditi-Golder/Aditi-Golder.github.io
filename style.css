@@ -821,6 +821,23 @@ body.dark .news-nav-btn:hover {
   background: #f5f5f5;
   border: 1px solid #ddd;
   border-radius: 8px;
+  position: relative;
+}
+
+.visitor-globe-widget::before {
+  content: "🌍 Loading globe...";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #666;
+  font-size: 0.9rem;
+  text-align: center;
+  z-index: 1;
+}
+
+.visitor-globe-widget:has(> :not(script):not(noscript))::before {
+  display: none;
 }
 
 @media (max-width: 1024px) {
