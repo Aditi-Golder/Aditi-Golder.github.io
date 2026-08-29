@@ -28,10 +28,70 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Store the original home content on page load
 let homeContent = null;
+const GA_MEASUREMENT_ID = 'G-03XW3FWG7L';
+
+function showGoogleAnalyticsBlockerPopup() {
+  if (document.getElementById('ga-blocker-overlay')) return;
+
+  document.body.classList.add('ga-blocker-active');
+
+  const overlay = document.createElement('div');
+  overlay.id = 'ga-blocker-overlay';
+  overlay.className = 'ga-blocker-overlay';
+  overlay.innerHTML = `
+    <div class="ga-blocker-modal">
+      <h3>Analytics is blocked</h3>
+      <p>This site uses Google Analytics to measure visits. Your ad blocker or browser privacy settings are blocking the tracker. Please disable the ad blocker for this page and reload.</p>
+      <button type="button" class="ga-reload-btn">Reload page</button>
+    </div>
+  `;
+
+  overlay.querySelector('.ga-reload-btn').addEventListener('click', function () {
+    window.location.reload();
+  });
+
+  document.body.appendChild(overlay);
+}
+
+function loadGoogleAnalytics() {
+  if (document.getElementById('ga-script')) return;
+
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+
+  const script = document.createElement('script');
+  script.id = 'ga-script';
+  script.async = true;
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+
+  script.onload = function () {
+    window.gtag('js', new Date());
+    window.gtag('config', GA_MEASUREMENT_ID, {
+      anonymize_ip: true,
+      allow_google_signals: false
+    });
+    window.__gaLoaded = true;
+  };
+
+  script.onerror = function () {
+    showGoogleAnalyticsBlockerPopup();
+  };
+
+  document.head.appendChild(script);
+
+  setTimeout(function () {
+    if (!window.__gaLoaded && !document.getElementById('ga-blocker-overlay')) {
+      showGoogleAnalyticsBlockerPopup();
+    }
+  }, 3000);
+}
 
 document.addEventListener('DOMContentLoaded', function() {
   // Save the original home content
   homeContent = document.getElementById('main-content').innerHTML;
+  loadGoogleAnalytics();
 });
 
 function loadContent(section) {
@@ -76,18 +136,8 @@ function loadContent(section) {
   
   // Load home content by default on page load (home is now static)
   window.onload = function () {
-    // Reload globe widget script to ensure it initializes
-    setTimeout(() => {
-      const globeScript = document.getElementById('mmvst_globe');
-      if (globeScript) {
-        const newScript = document.createElement('script');
-        newScript.type = 'text/javascript';
-        newScript.id = 'mmvst_globe';
-        newScript.src = '//mapmyvisitors.com/globe.js?d=6fxZpZfaQw2WV5XFhecj1Kz7WLHXrDdV_5Q0OQoto7E';
-        newScript.async = true;
-        globeScript.parentNode.replaceChild(newScript, globeScript);
-      }
-    }, 500);
+    // Intentionally left blank: third-party visitor tracking scripts were removed
+    // because they can trigger blocked analytics requests in privacy-focused browsers.
   };
 
 
