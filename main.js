@@ -1,5 +1,13 @@
 // main.js
 
+function setActiveNav(section) {
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    const isActive = link.textContent.trim().toLowerCase().includes(section.toLowerCase());
+    link.classList.toggle('active', isActive);
+  });
+}
+
 // News carousel scroll function
 function scrollNews(direction) {
   const container = document.querySelector('.news-cards-container');
@@ -17,6 +25,13 @@ document.addEventListener("DOMContentLoaded", function () {
     toggle.className = "toggle-theme";
     toggle.innerHTML = "☀️";
     document.querySelector("nav").appendChild(toggle);
+
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        setActiveNav(link.textContent.trim());
+      });
+    });
   
     toggle.addEventListener("click", () => {
       document.body.classList.toggle("dark");
