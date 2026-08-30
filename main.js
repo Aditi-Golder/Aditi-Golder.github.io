@@ -21,10 +21,13 @@ function scrollNews(direction) {
 
 // Add dark/light theme toggle
 document.addEventListener("DOMContentLoaded", function () {
+    const nav = document.querySelector("nav");
+    const navMenu = nav.querySelector(".nav-menu");
     const toggle = document.createElement("button");
     toggle.className = "toggle-theme";
     toggle.innerHTML = "☀️";
-    document.querySelector("nav").appendChild(toggle);
+
+    navMenu.appendChild(toggle);
 
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
